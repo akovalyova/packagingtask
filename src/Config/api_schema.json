@@ -1,0 +1,158 @@
+{
+    "type": "array",
+    "properties": {
+        "response": {
+            "type": "array",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "bins_packed": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "properties": {
+                            "bin_data": {
+                                "type": "array",
+                                "properties": {
+                                    "w": {
+                                        "type": "integer"
+                                    },
+                                    "h": {
+                                        "type": "integer"
+                                    },
+                                    "d": {
+                                        "type": "integer"
+                                    },
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "used_space": {
+                                        "type": "number"
+                                    },
+                                    "weight": {
+                                        "type": "number"
+                                    },
+                                    "gross_weight": {
+                                        "type": "number"
+                                    },
+                                    "used_weight": {
+                                        "type": "number"
+                                    },
+                                    "stack_height": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": ["w", "h", "d", "id", "used_space", "weight", "gross_weight", "used_weight", "stack_height"]
+                            },
+                            "image_complete": {
+                                "type": "string",
+                                "format": "uri"
+                            },
+                            "items": {
+                                "type": "array",
+                                "items": {
+                                    "type": "array",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "w": {
+                                            "type": "integer"
+                                        },
+                                        "h": {
+                                            "type": "integer"
+                                        },
+                                        "d": {
+                                            "type": "integer"
+                                        },
+                                        "wg": {
+                                            "type": "number"
+                                        },
+                                        "image_sbs": {
+                                            "type": "string",
+                                            "format": "uri"
+                                        },
+                                        "coordinates": {
+                                            "type": "array",
+                                            "properties": {
+                                                "x1": {
+                                                    "type": "integer"
+                                                },
+                                                "y1": {
+                                                    "type": "integer"
+                                                },
+                                                "z1": {
+                                                    "type": "integer"
+                                                },
+                                                "x2": {
+                                                    "type": "integer"
+                                                },
+                                                "y2": {
+                                                    "type": "integer"
+                                                },
+                                                "z2": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "required": ["x1", "y1", "z1", "x2", "y2", "z2"]
+                                        }
+                                    },
+                                    "required": ["id", "w", "h", "d", "wg", "image_sbs", "coordinates"]
+                                }
+                            }
+                        },
+                        "required": ["bin_data", "image_complete", "items"]
+                    }
+                },
+                "errors": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "properties": {
+                            "level": {
+                                "type": "string"
+                            },
+                            "message": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["level", "message"]
+                    }
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "not_packed_items": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "q": {
+                                "type": "integer"
+                            },
+                            "w": {
+                                "type": "integer"
+                            },
+                            "h": {
+                                "type": "integer"
+                            },
+                            "d": {
+                                "type": "integer"
+                            },
+                            "wg": {
+                                "type": "number"
+                            }
+                        },
+                        "required": ["id", "q", "w", "h", "d", "wg"]
+                    }
+                }
+            },
+            "required": ["id", "bins_packed", "status", "not_packed_items"]
+        }
+    },
+    "required": ["response"]
+}
