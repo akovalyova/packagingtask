@@ -10,7 +10,6 @@ class ValidatorService
 {
     public function __invoke(array $jsonData, string $schemaPath): bool
     {
-        $schema = '';
         try {
             if (!file_exists($schemaPath) || !is_readable($schemaPath)) {
                 throw new RuntimeException("File not found or inaccessible: $schemaPath");

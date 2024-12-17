@@ -3,9 +3,10 @@
 namespace App\Service;
 
 use App\Entity\Cache;
+use App\Interface\CachingInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
-class CacheService
+class CacheService implements CachingInterface
 {
 
     public function __construct(private readonly EntityManagerInterface $entityManager)
