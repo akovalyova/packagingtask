@@ -16,3 +16,5 @@
 - Fix api json schema , recheck validation
 - Review and fix phpstan warnings (array types, etc.)
 - Save extracted response in cache (now apiresponse is saved only and then needed to be extracted again)
+- Get environment variables from .env file
+- Separate getting packaging records (DB, Doctrine) from API service (BinPackingResource)
