@@ -4,7 +4,6 @@ namespace App;
 
 use App\Interface\ApiResourceInterface;
 use App\Interface\CachingInterface;
-use App\Service\CacheService;
 use App\Service\ResponseTransformer;
 use App\Service\ValidatorService;
 use Exception;
@@ -15,7 +14,7 @@ use UnexpectedValueException;
 
 class Application
 {
-    private CacheService $cacheService;
+    private CachingInterface $cacheService;
     private ValidatorService $validatorService;
     private ResponseTransformer $transformerService;
     private ApiResourceInterface $apiService;
@@ -59,6 +58,10 @@ class Application
             return $this->handleError($e);
         }
     }
+
+    /**
+     * @throws \JsonException
+     */
     private function getRequestData(RequestInterface $request): array
     {
         $contents = $request->getBody()->getContents();
@@ -84,6 +87,9 @@ class Application
         return json_decode($apiResponseJson, true, 52, JSON_THROW_ON_ERROR);
     }
 
+    /**
+     * @throws \DateMalformedStringException
+     */
     private function cacheResponseIfNeeded(array $apiResponse, array $extractedResponse, string $cacheKey): void
     {
         if (isset($extractedResponse['status']) && $extractedResponse['status'] !== -1) {

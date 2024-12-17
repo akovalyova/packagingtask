@@ -10,3 +10,10 @@
 ### adminer
 - Open `http://localhost:8080/?server=mysql&username=root&db=packing`
 - Password: secret
+
+### TO DO
+- Add logging for api errrors
+- Fix api json schema , recheck validation
+- Review and fix phpstan warnings (array types, etc.)
+- Save extracted response in cache (now apiresponse is saved only and then needed to be extracted again)
+-
