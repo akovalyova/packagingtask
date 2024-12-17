@@ -16,4 +16,3 @@
 - Fix api json schema , recheck validation
 - Review and fix phpstan warnings (array types, etc.)
 - Save extracted response in cache (now apiresponse is saved only and then needed to be extracted again)
--
